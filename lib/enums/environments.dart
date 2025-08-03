@@ -1,7 +1,7 @@
 enum Environment { SANDBOX, PRODUCTION }
 
 extension Desk360Environment on Environment {
-  static const values = {
+  static const Map<Environment, int> values = {
     Environment.SANDBOX: 0,
     Environment.PRODUCTION: 1,
   };

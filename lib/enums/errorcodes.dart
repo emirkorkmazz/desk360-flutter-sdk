@@ -17,13 +17,13 @@ class Desk360FlutterException implements Exception {
   String message = "";
 
   Desk360FlutterException(ErrorCode code) {
-    this.code = code.value?['code'] as int;
-    this.message = code.value?['message'] as String;
+    this.code = code.value?['code'] as int? ?? 0;
+    this.message = code.value?['message'] as String? ?? "";
   }
 }
 
 extension Desk360FlutterError on ErrorCode {
-  static const values = {
+  static const Map<ErrorCode, Map<String, Object>> values = {
     ErrorCode.NATIVE_MODULE_NOT_FOUND: {
       "code": 101,
       "message": 'Native module "Desk360Flutter" not found.',

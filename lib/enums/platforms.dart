@@ -1,7 +1,7 @@
 enum Platform { GOOGLE, HUAWEI }
 
 extension Desk360Platform on Platform {
-  static const values = {
+  static const Map<Platform, int> values = {
     Platform.GOOGLE: 0,
     Platform.HUAWEI: 1,
   };
