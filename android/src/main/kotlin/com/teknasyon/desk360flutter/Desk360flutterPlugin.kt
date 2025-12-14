@@ -12,7 +12,6 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-import io.flutter.plugin.common.PluginRegistry
 import org.json.JSONObject
 
 /** Desk360flutterPlugin */
@@ -25,15 +24,6 @@ class Desk360flutterPlugin: FlutterPlugin, MethodCallHandler {
   private lateinit var context: Context
   private lateinit var desk360Client: Desk360Client
   private var initialized = false
-  companion object {
-    @JvmStatic
-    fun registerWith(registrar: PluginRegistry.Registrar) {
-      val instance = Desk360flutterPlugin()
-      val channel = MethodChannel(registrar.messenger(), "desk360flutter")
-      channel.setMethodCallHandler(instance)
-      instance.context = registrar.context()
-    }
-  }
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "desk360flutter")
